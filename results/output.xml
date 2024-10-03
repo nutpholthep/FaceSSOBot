@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.0 on win32)" generated="2024-10-03T15:49:55.189853" rpa="false" schemaversion="5">
+<suite id="s1" name="FaceSSOBot" source="C:\work\FaceSSOBot">
+<suite id="s1-s1" name="TC-Admin" source="C:\work\FaceSSOBot\TC-Admin.robot">
+<test id="s1-s1-t1" name="Admin Assign" line="15">
+<kw name="User LogIn" owner="Admin">
+<kw name="Open Chrome In Thai" owner="Admin">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-03T15:49:55.356343" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001CC83907EC0&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-03T15:49:55.356343" elapsed="0.001000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>${LANGUAGE}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-10-03T15:49:55.357343" elapsed="0.001000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>${TIMEZONE}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-10-03T15:49:55.358343" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:49:55.359341" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-10-03T15:49:55.358343" elapsed="2.038952"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:49:57.398295" level="INFO">Opening url 'https://ko-dev.face-sso.com/#/login'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-10-03T15:49:57.397295" elapsed="2.980079"/>
+</kw>
+<arg>${URL}</arg>
+<status status="PASS" start="2024-10-03T15:49:55.355343" elapsed="5.023040"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.378383" elapsed="0.060925"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:00.440319" level="INFO">Typing text 'Demo01' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${Username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.440319" elapsed="0.158537"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:00.598856" level="INFO">Typing password into text field 'name:password'.</msg>
+<msg time="2024-10-03T15:50:00.646533" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name:password</arg>
+<arg>${Password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.598856" elapsed="0.111059"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//button[@type='submit' and normalize-space(text())='เข้าสู่ระบบ']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.709915" elapsed="0.015973"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:00.726912" level="INFO">Clicking element 'xpath=//button[@type='submit' and normalize-space(text())='เข้าสู่ระบบ']'.</msg>
+<arg>xpath=//button[@type='submit' and normalize-space(text())='เข้าสู่ระบบ']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.726912" elapsed="0.045203"/>
+</kw>
+<arg>Username=${UserName}</arg>
+<arg>Password=${PassWord}</arg>
+<arg>URL=${URL}</arg>
+<status status="PASS" start="2024-10-03T15:49:55.354377" elapsed="5.417738"/>
+</kw>
+<kw name="HR Assign" owner="Admin">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//section[@class='content-body px-0 full-content']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-03T15:50:00.773115" elapsed="0.453559"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.226674" level="INFO">Clicking element '//i[@class='fas fa-bars']'.</msg>
+<arg>//i[@class='fas fa-bars']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.226674" elapsed="0.053743"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.281384" level="INFO">Clicking element '//li[@ng-reflect-router-link='/report']'.</msg>
+<arg>//li[@ng-reflect-router-link='/report']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.280417" elapsed="0.108907"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.389324" level="INFO">Clicking element '//div[@class='row']//div[@class='div-btn-icon'][1]/button'.</msg>
+<arg>//div[@class='row']//div[@class='div-btn-icon'][1]/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.389324" elapsed="0.200216"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.590576" level="INFO">Typing text 'ทดสอบสร้าง02' into text field '//input[@formcontrolname='EmpName']'.</msg>
+<arg>//input[@formcontrolname='EmpName']</arg>
+<arg>ทดสอบสร้าง02</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.589540" elapsed="0.114406"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.703946" level="INFO">Selecting options from selection list '//select[@formcontrolname='ProjectId']' by index 1.</msg>
+<arg>//select[@formcontrolname='ProjectId']</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.703946" elapsed="0.098707"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.803641" level="INFO">Selecting options from selection list '//select[@formcontrolname='ProjectTypeId']' by index 2.</msg>
+<arg>//select[@formcontrolname='ProjectTypeId']</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.802653" elapsed="0.089562"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.893215" level="INFO">Selecting options from selection list '//select[@formcontrolname='ModuleId']' by index 2.</msg>
+<arg>//select[@formcontrolname='ModuleId']</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.892215" elapsed="0.087095"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:01.980335" level="INFO">Selecting options from selection list '//select[@formcontrolname='IssueTypeId']' by index 5.</msg>
+<arg>//select[@formcontrolname='IssueTypeId']</arg>
+<arg>5</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:01.979310" elapsed="0.096348"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.075658" level="INFO">Selecting options from selection list '//select[@formcontrolname='ProblemTypeId']' by index 1.</msg>
+<arg>//select[@formcontrolname='ProblemTypeId']</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.075658" elapsed="0.063378"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.140014" level="INFO">Selecting options from selection list '//select[@formcontrolname='Location']' by index 1.</msg>
+<arg>//select[@formcontrolname='Location']</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.140014" elapsed="0.074136"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.215150" level="INFO">Selecting options from selection list '//select[@formcontrolname='NotificationChannelId']' by index 1.</msg>
+<arg>//select[@formcontrolname='NotificationChannelId']</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.215150" elapsed="0.071003"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.287187" level="INFO">Selecting options from selection list '//select[@formcontrolname='PriorityProblemId']' by index 2.</msg>
+<arg>//select[@formcontrolname='PriorityProblemId']</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.286153" elapsed="0.086043"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.372196" level="INFO">Typing text 'ทดสอบๆ02' into text field '//textarea[@formcontrolname='Description']'.</msg>
+<arg>//textarea[@formcontrolname='Description']</arg>
+<arg>ทดสอบๆ02</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.372196" elapsed="0.092412"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.464608" level="INFO">Typing text 'ทดสอบๆ02' into text field '//textarea[@formcontrolname='IssueMesse']'.</msg>
+<arg>//textarea[@formcontrolname='IssueMesse']</arg>
+<arg>ทดสอบๆ02</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.464608" elapsed="0.100304"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.564912" level="INFO">Clicking element '//i[@class='fa fa-paperclip']'.</msg>
+<arg>//i[@class='fa fa-paperclip']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.564912" elapsed="0.054189"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[@id='file']</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.619101" elapsed="0.015003"/>
+</kw>
+<kw name="Choose File" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.635105" level="INFO">Sending C:\Users\User\Downloads\export (2).pdf to browser.</msg>
+<arg>//input[@id='file']</arg>
+<arg>C:/Users/User/Downloads/export (2).pdf</arg>
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.634104" elapsed="0.032711"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.669266" level="INFO">Clicking element '//button[@type='button' and normalize-space(text())='บันทึก']'.</msg>
+<arg>//button[@type='button' and normalize-space(text())='บันทึก']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.668252" elapsed="0.048407"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:02.718115" level="INFO">Clicking element '//button[@type='submit' and normalize-space(text())='บันทึก']'.</msg>
+<arg>//button[@type='submit' and normalize-space(text())='บันทึก']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.716659" elapsed="0.058896"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-03T15:50:05.776168" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-03T15:50:02.775555" elapsed="3.001186"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:05.777803" level="INFO">Clicking element '//button[text()='Ok']'.</msg>
+<arg>//button[text()='Ok']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-03T15:50:05.776741" elapsed="0.086583"/>
+</kw>
+<status status="PASS" start="2024-10-03T15:50:00.772115" elapsed="5.091209"/>
+</kw>
+<kw name="Assign To Op" owner="Admin">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-10-03T15:50:36.042270" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-10-03T15:50:36.042270" level="FAIL">Element '//section[@class='content-body px-0 full-content']' not visible after 30 seconds.</msg>
+<arg>//section[@class='content-body px-0 full-content']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-10-03T15:50:05.864320" elapsed="30.179950">Element '//section[@class='content-body px-0 full-content']' not visible after 30 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//i[@class='fas fa-bars']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.044270" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//i[@class='fas fa-tasks']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.044270" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[@class='container col-12']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.044270" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//tbody/tr[1]//button[text()='จัดการปัญหา']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.045271" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//button[contains(.,'เพิ่มผู้รับผิดชอบ')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.045271" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//div[@class='modal-body']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.045271" elapsed="0.000000"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<arg>//select[@class="form-control"]</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.045271" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='ผู้รับผิดชอบ']/following-sibling::div/select</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.045271" elapsed="0.000000"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='ผู้รับผิดชอบ']/following-sibling::div/select</arg>
+<arg>11</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.046270" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='วันที่เริ่ม']/following-sibling::div/input</arg>
+<arg>03/10/2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.046270" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='วันที่สิ้นสุด']/following-sibling::div/input</arg>
+<arg>03/10/2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.046270" elapsed="0.000999"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>8s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.047269" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='คำนวณ']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.047269" elapsed="0.000000"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<arg>xpath=//div[text()='การติดตามงาน']/following-sibling::div/select</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.047269" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//textarea[@rows='3']</arg>
+<arg>-</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.047269" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[text()='ส่งต่อ']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.047269" elapsed="0.000000"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>20s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-10-03T15:50:36.048325" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-10-03T15:50:05.864320" elapsed="30.184005">Element '//section[@class='content-body px-0 full-content']' not visible after 30 seconds.</status>
+</kw>
+<doc>HR มอบหมายงาน</doc>
+<status status="FAIL" start="2024-10-03T15:49:55.352333" elapsed="40.695992">Element '//section[@class='content-body px-0 full-content']' not visible after 30 seconds.</status>
+</test>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-10-03T15:50:36.050269" elapsed="4.234498"/>
+</kw>
+<status status="FAIL" start="2024-10-03T15:49:55.210269" elapsed="45.075534"/>
+</suite>
+<status status="FAIL" start="2024-10-03T15:49:55.192858" elapsed="45.097818"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="FaceSSOBot">FaceSSOBot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="TC-Admin">FaceSSOBot.TC-Admin</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
