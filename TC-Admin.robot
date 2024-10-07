@@ -13,13 +13,13 @@ ${TIMEZONE}    --timezone=Asia/Bangkok
 *** Test Cases ***
 
 Admin Assign 
-    [Documentation]    HR หางานให้ทำ
+    [Documentation]    HR ADDงาน
     User LogIn    Username=${UserName}    Password=${PassWord}    URL=${URL}
     HR Assign
     
 
 HR Add To Worker
-    [Documentation]    HR ใส่คุณในงาน
+    [Documentation]    HR มอบหมายงาน
     User LogIn    Username=${UserName}    Password=${PassWord}    URL=${URL}
     Assign To Op
     
