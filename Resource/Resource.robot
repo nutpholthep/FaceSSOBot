@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    Process
 # robotcode: ignore
 
 *** Keywords ***
@@ -213,3 +214,60 @@ Go to Delete
     Sleep    5s
     Click Element    xpath=//div[@id='delete']   
     Handle Alert    action=Accept 
+
+Go to View All Detail
+    Sleep    10s
+    Wait Until Element Is Visible    id:repo    20s
+    Click Element    id:repo
+    Wait Until Element Is Visible    //label[text()='document']    30s
+    Click Element    //label[text()='document'] 
+    Wait Until Element Is Visible    xpath=//tr[.//a[text()='export.pdf']]//input[@type='checkbox']    30s 
+    Sleep    3s   
+    Click Element    xpath=//tr[contains(@class, 'table-body') and .//a[text()='export.pdf']]//input[@type='checkbox' and not(@disabled)]
+    Sleep    5s
+    Click Element    xpath=//div[@id='vieweallfile']
+    Wait Until Element Is Visible   xpath=//iframe[@id='pdfjs']   30s
+    Sleep    10s   
+
+Go to Export ZIP
+    Sleep    10s
+    Wait Until Element Is Visible    id:repo    20s
+    Click Element    id:repo
+    Wait Until Element Is Visible    //label[text()='document']    30s
+    Click Element    //label[text()='document'] 
+    Wait Until Element Is Visible    xpath=//tr[.//a[text()='export.pdf']]//input[@type='checkbox']    30s 
+    Sleep    3s   
+    Click Element    xpath=//tr[contains(@class, 'table-body') and .//a[text()='export.pdf']]//input[@type='checkbox' and not(@disabled)]
+    Sleep    5s
+    Click Element    xpath=//div[@id='exportzip']
+    Sleep    2s
+    Start Process    ./Script/save.exe
+    Sleep    10s   
+
+
+Go to Edit PDF
+    Sleep    10s
+    Wait Until Element Is Visible    id:repo    20s
+    Click Element    id:repo
+    Wait Until Element Is Visible    //label[text()='document']    30s
+    Click Element    //label[text()='document'] 
+    Wait Until Element Is Visible    xpath=//tr[.//a[text()='Template.pdf']]//input[@type='checkbox']    30s 
+    Sleep    3s   
+    Click Element    xpath=//tr[contains(@class, 'table-body') and .//a[text()='Template.pdf']]//input[@type='checkbox' and not(@disabled)]
+    Sleep    5s
+    Click Element    xpath=//div[@id='checkout-and-edit']
+    Sleep    2s
+    Wait Until Page Contains Element    xpath=//iframe[contains(@src, 'https://demo-doc.ecm.in.th')]    60s
+    Select Frame    xpath=//iframe[contains(@src, 'https://demo-doc.ecm.in.th')]
+    Wait Until Element Is Not Visible    //app-loader    2m
+    Wait Until Element Is Not Visible    //ngx-spinner    2m
+    Wait Until Element Is Not Visible    //dialog[@class='dynamsoft-dwt-dialogProgress']    2m
+    Wait Until Element Is Visible    xpath=//div[@id='page-content-wrapper']    2m
+    Wait Until Element Is Not Visible    //app-loader    2m
+    Choose File    //*[@id="uploadFileInput"]    C:/Users/User/Downloads/2024-08-30 10144933_หนังสือภายใน(บันทึกข้อความ).pdf 
+    Wait Until Element Is Not Visible    //app-loader    2m   
+    Wait Until Element Is Not Visible    //dialog[@class='dynamsoft-dwt-dialogProgress']    2m
+    Wait Until Element Is Not Visible    //app-loader    2m   
+    Click Element    //*[@id="scan-form"]/div/button/i
+    Wait Until Element Is Not Visible    //app-loader    2m  
+    Sleep    10s   

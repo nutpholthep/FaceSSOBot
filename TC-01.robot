@@ -1,10 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    Process
 Resource    ./Resource/Resource.robot
+Suite Teardown    Close All Browsers
 *** Variables ***
-${URL}   
-${username}    
-${password}    
 ${SEARCH_TERM}    ภาพคอกี
 ${BROWSER}    Chrome
 
@@ -81,4 +80,25 @@ Click to Delete
     LogIn
     Click SideBar
     Go to Delete
+    Close Browser
+
+Click to View All Detail
+    [Documentation]    กดดูปุ่มดูไฟล์ทั้งหมด
+    LogIn
+    Click SideBar
+    Go to View All Detail
+    Close Browser
+
+Click to Export to ZIP
+    [Documentation]    กดExport to ZIP
+    LogIn
+    Click SideBar
+    Go to Export ZIP
+    Close Browser
+
+Click to Edit PDF
+    [Documentation]    กดแก้ไข PDF
+    LogIn
+    Click SideBar
+    Go to Edit PDF
     Close Browser
